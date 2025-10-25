@@ -1,16 +1,19 @@
 body{
-    font-family: 'Inter', sans-serif;
-    background-color: #141414;
+    font-family: "Outfit", sans-serif;
     margin: 0;
+    background-color: #000000;
+    background-image: 
+                radial-gradient(ellipse at 30% 20%, rgba(0, 0, 0, 0.1), transparent 70%),
+                radial-gradient(ellipse at 70% 80%, rgba(255, 255, 255, 0.138), transparent 70%);
     
-    /*background-image: 
-                radial-gradient(ellipse at 30% 20%, rgba(255, 153, 51, 0.1), transparent 70%),
-                radial-gradient(ellipse at 70% 80%, rgba(19, 136, 8, 0.1), transparent 70%);
-    */
+    
     
     color: white;
 
 }
+
+
+
 
 .main{
     height: 100vh;
@@ -18,10 +21,14 @@ body{
     flex-direction: column;
     align-items: center;
     
+    
+    
+    
+    
 }
 
 .icon_box{
-    height: 15vh;
+    height: 12vh;
     width: 100vw;
     display: flex;
     justify-content: end;
@@ -43,11 +50,11 @@ body{
 }
 
 .pref{
-    padding-top:10px;
+    padding-top: 1vh;
     display: flex;
     flex-direction: column;
     gap: 7px;
-    margin-right: 8px;
+    padding-right: 0.8vh;
     
 
 }
@@ -82,7 +89,7 @@ body{
     width: 100vw;
     box-shadow: 0 0 2px white;
     gap: 1vh;
-    margin-bottom: 6vh;
+    margin-bottom: 3vh;
     
     
 }
@@ -91,14 +98,6 @@ body{
     display: flex;
     font-size: 300%;
     font-weight: bolder;
-    /*-webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-image: 
-                radial-gradient(ellipse at 30% 20%, rgb(255, 187, 120), transparent 70%),
-                radial-gradient(ellipse at 50% 40%, rgba(211, 211, 211, 0.9), transparent 70%),
-                radial-gradient(ellipse at 70% 80%, rgb(141, 255, 130), transparent 70%);
-    */
-
 }
 
 .t2{
@@ -108,27 +107,105 @@ body{
 }
 
 .slogan{
-    font-weight: bold;
+    font-weight: 400;
     
-    color: rgb(210, 210, 210);
+    color: rgb(158, 158, 158);
 }
 
 .mid2{
     display: flex;
     justify-content: center;
-    background-color: #FF9933;
+    align-items: center;
+    
     width: 100vw;
+    flex-direction: column;
+    gap: 1vh;
+    
+    
 
 }
 
 .get{
     
     font-size: 4vh;
-    font-weight: 800;
+    font-weight: 600;
     
     padding: 1vh;
-    color: #141414;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-color: #000000;
+    background-image: 
+                radial-gradient(ellipse at 30% 20%, rgb(255, 255, 255), transparent 70%),
+                radial-gradient(ellipse at 70% 80%, rgb(131, 131, 131), transparent 70%);
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    border-radius: 0.5vh;
+    
 }
+
+.j1{
+    color: #c9c9c9;
+    font-weight: 300;
+}
+
+.mid3{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5vw;
+    padding-top: 3vh;
+    
+}
+
+.reg_box{
+    height: 20vh;
+    width: 43vw;
+    background-color: rgba(78, 78, 78, 0.1);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 1vh black;
+    
+    border-radius: 0.7vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.5s ease;
+}
+
+.reg_box:hover{
+    box-shadow: 0 0 2px white;
+}
+
+.symb{
+    cursor: pointer;
+    height: 7vh;
+    width: 7vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.symb_img{
+    height: 7vh;
+    width: 7vh;
+}
+
+
+.bottom{
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.bottom_bar{
+    margin-top: 20vh;
+    width: 100vw;
+    height: 8vh;
+    background-color: #000000;
+    box-shadow: 0 0 0.15vh white;
+    border-bottom-left-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+}
+
 
 hr{
     width: 97vw;
@@ -143,7 +220,8 @@ hr{
     position: fixed;
     height: 100vh;
     width: 90vw;
-    background-color: rgb(16, 16, 16);
+    background-color: rgba(16, 16, 16, 0.351);
+    backdrop-filter: blur(12px);
     z-index: 1;
     left: -100%;
     transition: left 0.2s ease;
@@ -154,3 +232,11 @@ hr{
     left: 0;
 }
 
+#background-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;}
