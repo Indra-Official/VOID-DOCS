@@ -1,0 +1,1 @@
+[{"previous_hash": "0000000", "time_stamp": "00:00:00", "data": "This block is the starter block."}]
