@@ -1,27 +1,23 @@
 from pymongo import MongoClient
 import bcrypt
 import os
-from Commands import generate_rsa_keypair
-
-def clear():
-    if os.name == 'nt':
-        _ = os.system('cls')
-    else:
-        _ = os.system('clear')
+from Commands import generate_rsa_keypair, clear
 
 clear()
+
+
 print("""-----------------------------------------------------------------
                       ADMIN REGISTERATION
 -----------------------------------------------------------------
       """)
 a = input(" 1 | Enter your Full Name : ")
-b = input(" 2 | Enter you ID Number : ")
+b = input(" 2 | Enter your ID Number : ")
 c = input(" 3 | Create a Password : ")
 
 
-client = MongoClient("mongodb://localhost:27017/")
+client = MongoClient("mongodb+srv://thechallengeof100_db_user:Lalith%402007!@void-docs.chspz4j.mongodb.net/")
 
-db = client["Void-Docs"]
+db = client["VOID-Docs"]
 Admins_ID = db["Admins_ID"]
 Admins_Public = db["Admins_Public"]
 
@@ -33,12 +29,9 @@ keys = generate_rsa_keypair()
 public_ = {"Public_Key": keys[1], "ID": b, "Name": a}
 Admins_Public.insert_one(public_)
 
-desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
-file_path = os.path.join(desktop_path, "PRIVATE_KEY.txt")
-with open(file_path, "w") as file:
-    file.write(keys[0])
-
-print(f"File saved at: {file_path}")
+x = open("DesktopApp/Private_Key.txt", "w")
+x.write(keys[0])
+x.close()
 
 print("""
 -----------------------------------------------------------------""")
@@ -46,13 +39,3 @@ print("Account Registered.")
 print("-----------------------------------------------------------------")
 print("\n",keys[1])
 print("-----------------------------------------------------------------")
-
-
-
-'''
-if bcrypt.checkpw(entered_password.encode('utf-8'), hashed):
-    print("Password match")
-
-else:
-    print("Password does not match")
-'''
