@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VOID-Docs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 </head>
 <body>
 
@@ -16,8 +17,11 @@
         <div class = "Welcome">Welcome</div>
         
         <div class = "Type">
-            <div class = "Register"></div>
+            <a class = "Register" href="{{ url_for('Register')}}">Register</a>
+            <a class = "Login"  href="{{ url_for('Login')}}">Login</a>
         </div>
+            
     </div>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 </body>
 </html>
