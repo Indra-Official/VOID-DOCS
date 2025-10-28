@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Register.css') }}">
+</head>
+<body>
+    <div class = "TopBar">
+        <div class = "Logo"></div>
+        <div class = "Version"></div>
+    </div>
+    
+    <div class = "MainView">
+        <div class = "Welcome">Welcome</div>
+        
+        <form action="/login" method="post">
+            <label for="user_id">ID_Number</label>
+            <input type="text" id="user_id" name="user_id" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+
+
+            
+    </div>
+
+    <script src="{{ url_for('static', filename='js/Register.js') }}"></script>
+</body>
+</html>
