@@ -1,8 +1,8 @@
 :root {
-            --dark-bg: #090114;
+            --dark-bg: #ffffff;
             --glow-color: rgba(255, 255, 255, 0.1);
             --glow-color-hover: rgba(255, 255, 255, 0.25);
-            --text-primary: #ffffff;
+            --text-primary: #000000;
             --text-secondary: #c9c9c9;
             --text-muted: #888888;
         }
@@ -37,7 +37,7 @@
             z-index: 10;
             padding: 1.5vh 3vw;
             box-sizing: border-box;
-            background-color: var(--dark-bg);
+            background-color: rgb(222, 222, 222);
             box-shadow: 0 0.5vh 1.5vh rgba(0, 0, 0, 0.3);
         }
 
@@ -70,7 +70,7 @@
         }
         
         .app_title_docs {
-            background: linear-gradient(90deg, #FF9933, #FFFFFF, #138808);
+            background: linear-gradient(90deg, #ff8000, #ffffff, #15ff00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -168,7 +168,7 @@
         .action-box {
             min-height: 15vh;
             width: 100%;
-            background-color: rgba(30, 30, 40, 0.2);
+            background-color: rgba(243, 243, 243, 0.605);
             backdrop-filter: blur(1.2vh);
             box-shadow: 0 0 4vw rgba(0, 0, 0, 0.3), 0 0 1vw var(--glow-color);
             border: 0.1vh solid rgba(255, 255, 255, 0.05);
@@ -199,10 +199,11 @@
             font-size: 2.2vh;
             font-weight: 600;
             margin-top: 1.5vh;
+            color: #000000;
         }
 
         .action-box .action-desc {
-            color: var(--text-secondary);
+            color: rgb(71, 71, 71);
             font-size: 1.5vh;
             margin-top: 0.5vh;
             text-align: center;
@@ -224,7 +225,7 @@
         
         .doc-card {
             width: 100%;
-            background-color: rgba(30, 30, 40, 0.2);
+            background-color: rgba(243, 243, 243, 0.605);
             border: 0.1vh solid rgba(255, 255, 255, 0.05);
             box-shadow: 0 0 2vw rgba(0, 0, 0, 0.2), 0 0 0.5vw var(--glow-color);
             border-radius: 3vw;
