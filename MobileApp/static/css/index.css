@@ -1,0 +1,140 @@
+body{
+    font-family: "Share Tech", sans-serif;
+    background-color: #f4f4f4;
+}
+
+
+.top_bar{
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding: 1.5vh 3vw;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0.5vh 1.5vh rgba(0, 0, 0, 0.3);
+
+}
+
+.logo{
+    display: flex;
+    flex-direction: row;
+    font-size: 4vh;
+    font-weight: 800;
+}
+
+.vo{
+    color: red;
+
+}
+
+.id{
+    color: black;
+}
+
+.docs{
+   color: black;
+}
+
+.do{
+    
+}
+.cs{
+    
+}
+
+.mainview{
+    display: flex;
+    flex-direction: column;
+    padding: 1.5vh 3vw;
+    margin-top: 10vh;
+    
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome{
+    padding-top: 4vh;
+    color: black;
+    font-size: 7vh;
+    font-weight: 200;
+    border-bottom: 2px solid rgb(255, 0, 0);
+}
+
+.cbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5vh 3vw;
+    justify-content: center;
+    height: 50vh;
+    width: 100vw;
+    gap: 2vh;
+    
+}
+
+
+.rlink{
+    text-decoration: none;
+    color: white;
+    width: 85vw;
+    max-width: 85vw;
+}
+
+.reg_box {
+            
+            min-height: 20vh;
+            width: 100%;
+            background-color: rgb(255, 255, 255);
+            backdrop-filter: blur(1.2vh);
+            box-shadow: 0 0.5vh 1.5vh rgba(0, 0, 0, 0.3), 0 0 1vw rgba(255, 255, 255, 0.1);
+            border: 0.1vh solid rgba(255, 255, 255, 0.05);
+            border-radius: 1vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5vh 5vw;
+            box-sizing: border-box;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .reg_box:hover {
+            box-shadow: 0 0 6vw rgba(0, 0, 0, 0.2), 0 0 2vw var(--glow-color-hover);
+            transform: translateY(-1vh);
+        }
+
+        .symb {
+            height: 7vh;
+            width: 7vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            
+        }
+
+        .symb_img svg {
+            width: 7vh;
+            height: 7vh;
+            object-fit: contain;
+        }
+
+        .reg, .log {
+            color: black;
+            font-size: 2.5vh;
+            font-weight: 400;
+            margin-top: 1.5vh;
+        }
+
+        .desc {
+            color: black;
+            font-size: 1.5vh;
+            margin-top: 0.5vh;
+        }
