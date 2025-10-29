@@ -72,3 +72,13 @@ A blockchain is an append-only distributed ledger made of blocks. Each block con
 ---
 
 ## Architecture (high level)
+---
+
+## Example README visual elements & styles
+Place `assets/readme.css` in the repo and include a small HTML snippet in the README where needed.  
+**assets/readme.css** (suggested):
+```css
+/* assets/readme.css */
+.hero { text-align:center; padding:18px; }
+.card { border-radius:12px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); padding:12px; margin:10px; }
+.badge { display:inline-block; padding:6px 10px; border-radius:18px; font-size:12px; }
