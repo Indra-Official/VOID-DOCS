@@ -30,9 +30,8 @@ def Get_Peer():
 
 def First_Connect(ip):
     while True:
-        b = Listen()
         a = Send(ip,"Add_Me")
-        time.sleep(1)
+        b = Listen()
         if b[0] == ip and b[1] == "Added_You":
             break
         else:
@@ -41,7 +40,6 @@ def First_Connect(ip):
 def Stay_Connected(ip):
     while True:
         b = Listen()
-        time.sleep(1)
         if b[0] == ip and b[1] == "Online_Check":
             Send(ip, "Add_Me")
         else:

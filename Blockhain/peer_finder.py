@@ -56,8 +56,8 @@ def Discover_New_Peers():
 def Remove_Offline_Peers(current_connected_peers):
     while True:
         for i in current_connected_peers:
-            dab = Listen(i)
             dax = Send(i,"Online_Check")
+            dab = Listen(i)
             time.sleep(1)
             if dab != "Add_Me":
                 current_connected_peers.remove(i)
