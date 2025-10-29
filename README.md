@@ -73,12 +73,34 @@ A blockchain is an append-only distributed ledger made of blocks. Each block con
 
 ## Architecture (high level)
 ---
+# app/services/akari_node.py  (sketch)
+import hashlib
+import json
+import time
+import requests
+from ecdsa import SigningKey, NIST256p
 
-## Example README visual elements & styles
-Place `assets/readme.css` in the repo and include a small HTML snippet in the README where needed.  
-**assets/readme.css** (suggested):
-```css
-/* assets/readme.css */
-.hero { text-align:center; padding:18px; }
-.card { border-radius:12px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); padding:12px; margin:10px; }
-.badge { display:inline-block; padding:6px 10px; border-radius:18px; font-size:12px; }
+class AkariClient:
+    def __init__(self, node_url, private_key_pem):
+        self.node_url = node_url
+        self.sk = SigningKey.from_pem(private_key_pem)
+
+    def hash_file(self, file_bytes):
+        return hashlib.sha256(file_bytes).hexdigest()
+
+    def create_tx(self, doc_hash, metadata):
+        tx = {
+            "type": "DOC_RECORD",
+            "doc_hash": doc_hash,
+            "metadata": metadata,
+            "timestamp": int(time.time())
+        }
+        raw = json.dumps(tx, sort_keys=True).encode()
+        sig = self.sk.sign(raw).hex()
+        tx["signature"] = sig
+        return tx
+
+    def broadcast(self, tx):
+        resp = requests.post(f"{self.node_url}/tx/new", json=tx, timeout=5)
+        resp.raise_for_status()
+        return resp.json()
