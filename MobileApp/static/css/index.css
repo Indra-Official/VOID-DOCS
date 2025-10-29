@@ -243,14 +243,17 @@ body {
         padding: 3vh 5vw;
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         gap: 2vh;
+        width: 90vw;
         }
 
 .reg_box2{
-        width: 94vw;
+        width: 90vw;
         align-items: center;
         flex-direction: row;
-            
+        justify-self: center;    
         justify-content: space-between;
 
         }

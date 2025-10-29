@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request , session
 from Logined import logined
 from Registeration import registeration
+from dontcommit import MongoDB
 
 app = Flask(__name__)
-x = "MongoDB-feed"
+x = MongoDB
 
 
 @app.route('/')
@@ -16,7 +17,7 @@ def Login():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    message = ""
+    
     if request.method == 'POST':
         user_id = request.form['user_id']
         user_pass = request.form['password']

@@ -7,34 +7,45 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/Register.css') }}">
 </head>
 <body>
-    <div class = "TopBar">
-        <div class = "Logo"></div>
-        <div class = "Version"></div>
+    <div class="top_bar">
+        <div class="logo">
+            <span class="vo">VO</span>
+            <span class="id">ID</span>
+            <span class="docs">-DOCS</span>
+        </div>
+        <nav class="nav_links">
+            <a href="">v0.01-Alpha</a>
+        </nav>
     </div>
+
+    <div class="mainview">
     
-    <div class = "MainView">
-        <div class = "Welcome">Welcome</div>
+        <div class="login-container">
+            <h2 class="section-title">Register</h2>
         
-        <form action="/register" method="post">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" required>
+            <form class="" action="/register" method="post">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
 
-            <label for="user_id">ID_Number</label>
-            <input type="text" id="user_id" name="user_id" required>
-            
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+                <label for="user_id">ID Number</label>
+                <input type="text" id="user_id" name="user_id" required>
 
-            <button type="submit">Register</button>
-        </form>
+                <label for="password">Create Password</label>
+                <input type="password" id="password" name="password" required>
 
+                <button type="submit">Register</button>
+            </form>
         {% if message %}
             <p>{{ message }}</p>
         {% endif %}
+        </div>
 
-
-            
     </div>
+    
+    <footer class="footer">
+        <p style="color: rgb(205, 205, 205);">© 2025 VOID-DOCS. All rights reserved.</p>
+    </footer>
+
 
     <script src="{{ url_for('static', filename='js/Register.js') }}"></script>
 </body>
