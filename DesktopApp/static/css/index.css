@@ -1,0 +1,232 @@
+body {
+            font-family: "Share Tech", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #141414;
+            color: #f4f4f4;
+            overflow: hidden;
+        }
+
+        /* Canvas background style */
+        #blockchain-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1; /* Behind all content */
+        }
+
+        .top_bar {
+            height: 10vh;
+            width: 100vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10; /* High z-index to be on top */
+            padding: 1.5vh 5vw;
+            box-sizing: border-box;
+            background-color: rgb(0, 0, 0);
+            box-shadow: 0 0.5vh 1.5vh rgba(0, 0, 0, 0.5);
+            border-bottom: 0.1vh solid #333;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: row;
+            font-size: 4vh;
+            font-weight: 800;
+        }
+
+        .vo {
+            color: red;
+        }
+
+        .id {
+            color: #f4f4f4;
+        }
+
+        .docs {
+            color: #f4f4f4;
+        }
+        
+        .nav_links {
+            display: flex;
+            gap: 2vw;
+        }
+        
+        .nav_links a {
+            text-decoration: none;
+            color: #f4f4f4;
+            font-size: 1.8vh;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .nav_links a:hover {
+            color: red;
+        }
+
+        .mainview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5vw;
+            padding: 3vh 5vw;
+            margin-top: 10vh;
+            align-items: center;
+            width: 90vw;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            min-height: 90vh;
+            position: relative; /* Added */
+            z-index: 2; /* Added: Ensures content is above canvas */
+        }
+        
+        .info-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .welcome {
+            color: #f4f4f4;
+            font-size: 8vh;
+            font-weight: 600;
+            line-height: 1.1;
+            border-bottom: 0.3vh solid red;
+            padding-bottom: 2vh;
+            margin-bottom: 3vh;
+        }
+        
+        .hero-slogan {
+            font-size: 2.5vh;
+            color: #aaa;
+            margin-top: 2vh;
+            margin-bottom: 4vh;
+        }
+        
+        .privileges {
+            font-size: 2vh;
+            color: #ccc;
+            line-height: 1.6;
+        }
+        
+        .privileges h3 {
+            font-size: 3vh;
+            color: red;
+            margin-bottom: 2vh;
+        }
+        
+        .privileges ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .privileges li {
+            position: relative;
+            padding-left: 2.5vw;
+            margin-bottom: 1.5vh;
+        }
+        
+        .privileges li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: red;
+            font-weight: 800;
+            font-size: 2.5vh;
+        }
+
+        .cbox {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            gap: 3vh;
+        }
+
+        .section-title {
+            font-size: 4vh;
+            font-weight: 600;
+            color: #f4f4f4;
+            text-align: center;
+            margin-bottom: 1vh;
+        }
+        
+        .rlink {
+            text-decoration: none;
+            width: 100%;
+        }
+
+        .reg_box {
+            min-height: 20vh;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Slight transparency */
+            backdrop-filter: blur(5px); /* Frosted glass effect */
+            box-shadow: 0 0.5vh 1.5vh rgba(0, 0, 0, 0.3);
+            border: 0.1vh solid #333;
+            border-radius: 1vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5vh 3vw;
+            box-sizing: border-box;
+            transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .reg_box:hover {
+            transform: translateY(-0.5vh);
+            border-color: red;
+            box-shadow: 0 0 3vh rgba(255, 0, 0, 0.3);
+        }
+
+        .symb {
+            height: 7vh;
+            width: 7vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .symb svg {
+            width: 7vh;
+            height: 7vh;
+            object-fit: contain;
+            color: #f4f4f4;
+        }
+
+        .reg, .log {
+            color: #f4f4f4;
+            font-size: 2.5vh;
+            font-weight: 400;
+            margin-top: 1.5vh;
+        }
+
+        .desc {
+            color: #aaa;
+            font-size: 1.8vh;
+            margin-top: 0.5vh;
+            text-align: center;
+        }
+        
+        @media (max-width: 900px) {
+            .mainview {
+                grid-template-columns: 1fr;
+                width: 90vw;
+            }
+            .info-section {
+                text-align: center;
+                align-items: center;
+            }
+            .privileges li {
+                padding-left: 5vw;
+                text-align: left;
+            }
+        }
