@@ -5,19 +5,28 @@ import threading
 import time
 
 def Listen():
-    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server.bind(("0.0.0.0", 12345))
-    server.listen(1)
-    conn, addr = server.accept()
+    server_ip = '0.0.0.0'
+    server_port = 5000  # pick an open port
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_socket.bind((server_ip, server_port))
+    server_socket.listen(1)
+    print(f"Listening on {server_ip}:{server_port}...")
+
+    conn, addr = server_socket.accept()
+    print(f"Connection from {addr}")
+
     data = conn.recv(1024)
     conn.close()
+    server_socket.close()
     return [addr,data]
 
 def Send(ip,msg):
-    client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    client.connect((ip, 12345))
-    client.sendall(msg.encode('utf-8'))
-    client.close()
+    server_ip = ip
+    server_port = 5000
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client_socket.connect((server_ip, server_port))
+    client_socket.sendall(msg.encode())
+    client_socket.close()
 
 def Get_Peer():
     client = MongoClient(MongoDB)
@@ -40,6 +49,7 @@ def First_Connect(ip):
 def Stay_Connected(ip):
     while True:
         b = Listen()
+        time.sleep(1)
         if b[0] == ip and b[1] == "Online_Check":
             Send(ip, "Add_Me")
         else:
