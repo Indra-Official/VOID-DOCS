@@ -1,81 +1,194 @@
-# VOID — D O C S  
-**The Future of Document Safety**  
+<!-- FUTURISTIC BLACK + RED THEME README -->
+<div align="center" style="background-color:#000; padding:40px; border-radius:15px;">
 
-> Prototype repo for a hackathon — no license information included.
+<img src="LOGO_URL_HERE" alt="VOID DOCS Logo" width="250" style="margin-bottom:20px;"/>
 
----
+# 🚀 VOID DOCS  
+### *Secure, Decentralized & Intelligent Document Verification System*
 
-<!-- Hero (styled with a small inline HTML/CSS block so the README looks nice on GitHub) -->
-<div align="center">
-  <img src="./assets/logo.png" alt="VOID DOCS logo" width="180" />
-  <h2>Secure • Verifiable • Decentralised</h2>
-  <p><em>Peer-to-peer, blockchain-backed document verification plus AI assistance — built with Flask, MongoDB, Akari (our custom blockchain), Gemini (AI module) and hosted on AWS.</em></p>
+> **Built with:** Flask • Python • MongoDB • AWS • Custom Blockchain *(Akari)* • Gemini AI  
+
 </div>
 
 ---
 
-## Quick summary
-VOID (short for **VOID- D O C S**) is a prototype platform that:
-
-- Lets users upload and encrypt documents locally
-- Stores document metadata & secure hashes on a custom blockchain (**Akari**) for immutable verification
-- Uses an AI assistant (**Gemini module**) to help users search, categorize, and get legal/property guidance
-- Stores encrypted documents in cloud/object storage (AWS S3) and indexes the metadata in MongoDB
-- Targets India’s fragmented digital-document ecosystem to improve security, transparency and interoperability
+## <span style="color:#ff3c3c;">🔴 Problem Statement</span>
+India’s digital identity and document ecosystem lacks **security**, **transparency**, and **interoperability**.  
+Existing systems are centralized and prone to forgery, delays, and unauthorized access.  
+VOID DOCS tackles this with a **blockchain-backed**, **AI-powered**, and **user-centric** document verification platform that ensures trust and authenticity.
 
 ---
 
-## Team 
-**Team Akatsuki**  
-
-- **Team Head:** Jai Kishore N H — Jaikishore.n2025@vitstudent.ac.in — +91 95511 55198 — VIT Chennai  
-- **Member:** Lalith Adhithiya Saravanan — Lalith.adhithya2025@vitstudent.ac.in — +91 96555 913574 — VIT Chennai  
-- **Member:** Fawwaz Ahamed F — fawwazahamed.f2025@vitstudent.ac.in — +91 96291 38749 — VIT Chennai  
-- **Member:** Joash Mathew Jiju — joash.mathewjiju2025@vitstudent.ac.in — +91 72007 83718 — VIT Chennai
-
----
-
-## Problem statement 
-> "India’s digital identity and property documentation system lacks security, transparency, and interoperability."  
-> Traditional document storage is vulnerable to loss, forgery, and unauthorized access. Centralized platforms create single points of failure. Verification is slow and bureaucratic. There is an opportunity to create an independent, transparent verification system leveraging blockchain & AI. 
+## <span style="color:#ff3c3c;">🔴 Features</span>
+✨ **Immutable Blockchain Records** — Documents hashed and stored on *Akari*, ensuring tamper-proof verification.  
+🤖 **Gemini AI Module** — Smart classification, tagging, and natural-language document insights.  
+☁️ **AWS Integration** — Encrypted documents stored safely using S3 & scalable backend on EC2.  
+🧠 **Privacy-First Encryption** — Documents encrypted before upload; only hashes stored on-chain.  
+💬 **Fast Verification** — Compare file hash to chain record for instant authenticity checks.  
+🌐 **Interoperable Design** — APIs for 3rd-party verification systems and integrations.
 
 ---
 
-## Tech stack
-- **Backend:** Flask (Python)  
-- **Database / Index:** MongoDB (metadata + user records)  
-- **Frontend:** HTML / CSS / JavaScript (Vanilla — minimal dependencies for hackathon)  
-- **Custom Blockchain:** **Akari** — lightweight, purpose-built chain storing document hashes & minimal metadata (no heavy on-chain docs).  
-- **AI module:** Gemini (integrated as an assistant microservice for search, classification, Q&A)  
-- **Cloud / Hosting:** AWS (S3 for encrypted blobs, EC2 / Elastic Beanstalk / ECS for services)  
-- **Other:** local encryption (AES), signature (ECDSA), hashing (SHA-256)  
+## <span style="color:#ff3c3c;">🔴 System Architecture</span>
 
----
+```text
+[User] → [Flask Backend] → [Akari Blockchain]
+                ↓
+         [MongoDB Database]
+                ↓
+             [AWS Cloud]
+                ↓
+          [Gemini AI Module]
 
-## Why Blockchain? (simple explanation)
-**What is blockchain?**  
-A blockchain is an append-only distributed ledger made of blocks. Each block contains data (here: document hashes + metadata), a timestamp, and a cryptographic link (hash) to the previous block — making tampering detectable.
+<span style="color:#ff3c3c;">🔴 Tech Stack (icons + official URLs)</span>
 
-**Why we implemented Akari here**
-- **Immutable proof-of-record:** Storing document hashes on Akari gives a tamper-evident record that a certain file existed at a specific time.  
-- **Decentralised trust model:** Instead of trusting a single server, verification can be done by checking the ledger. For a hackathon prototype we run a small permissioned Akari network among nodes (team/demo nodes).  
-- **Auditability:** Authorities or counterparties can verify authenticity by checking the recorded hash and timestamp.  
-- **Interoperability potential:** By exposing verification endpoints, other services can verify documents without central access to raw files.
-
-**Benefits (specific to VOID)**
-- **Tamper-evidence:** Any modification to an uploaded file changes its hash and fails verification.  
-- **No central single-point-of-failure** for metadata (the ledger is shared).  
-- **Faster verification:** Verifiers only need the doc hash + access to the chain to confirm authenticity.  
-- **Privacy-first:** Actual files remain encrypted off-chain (S3 / local); only hashes & minimal metadata go on-chain.  
-- **Audit trail:** All transactions (uploads, transfers, ownership claims) are recorded with timestamps.
-
----
 <div align="center">
-  <img src="https://www.vectorlogo.zone/logos/python/python-icon.svg" width="60" />
-  <img src="https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-icon.svg" width="60" />
-  <img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" width="60" />
-  <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" width="60" />
-  <img src="https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg" width="60" />
-  <img src="https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" width="60" />
-  <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" width="60" />
+  <!-- Icons with links -->
+  <a href="https://www.python.org" target="_blank" rel="noopener">
+    <img src="https://www.vectorlogo.zone/logos/python/python-icon.svg" width="60" alt="Python"/>
+  </a>
+  <a href="https://flask.palletsprojects.com/" target="_blank" rel="noopener">
+    <img src="https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-icon.svg" width="60" alt="Flask"/>
+  </a>
+  <a href="https://www.mongodb.com" target="_blank" rel="noopener">
+    <img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" width="60" alt="MongoDB"/>
+  </a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener">
+    <img src="https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" width="60" alt="JavaScript"/>
+  </a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener">
+    <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" width="60" alt="HTML5"/>
+  </a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener">
+    <img src="https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg" width="60" alt="CSS3"/>
+  </a>
+  <a href="https://aws.amazon.com" target="_blank" rel="noopener">
+    <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" width="60" alt="AWS"/>
+  </a>
+  <a href="https://developers.google.com/experiments/ai/generative" target="_blank" rel="noopener">
+    <img src="https://www.vectorlogo.zone/logos/google/google-icon.svg" width="60" alt="Gemini (Google)"/>
+  </a>
+  <a href="https://github.com/TeamAkatsuki/akari" target="_blank" rel="noopener">
+    <img src="https://www.vectorlogo.zone/logos/bitcoin/bitcoin-icon.svg" width="60" alt="Akari (blockchain placeholder)"/>
+  </a>
+</div><!-- Text links for clarity (clickable) --><div align="center" style="margin-top:12px; color:#ddd;">
+  <a href="https://www.python.org" target="_blank" rel="noopener" style="color:#fff; margin:8px; text-decoration:none;">Python</a> •
+  <a href="https://flask.palletsprojects.com/" target="_blank" rel="noopener" style="color:#fff; margin:8px; text-decoration:none;">Flask</a> •
+  <a href="https://www.mongodb.com" target="_blank" rel="noopener" style="color:#fff; margin:8px; text-decoration:none;">MongoDB</a> •
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener" style="color:#fff; margin:8px; text-decoration:none;">JavaScript</a> •
+  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener" style="color:#fff; margin:8px; text-decoration:none;">HTML5</a> •
+  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener" style="color:#fff; margin:8px; text-decoration:none;">CSS3</a> •
+  <a href="https://aws.amazon.com" target="_blank" rel="noopener" style="color:#fff; margin:8px; text-decoration:none;">AWS</a> •
+  <a href="https://developers.google.com/experiments/ai/generative" target="_blank" rel="noopener" style="color:#fff; margin:8px; text-decoration:none;">Gemini (Google)</a> •
+  <a href="https://github.com/TeamAkatsuki/akari" target="_blank" rel="noopener" style="color:#fff; margin:8px; text-decoration:none;">Akari (blockchain)</a>
 </div>
+---
+
+<span style="color:#ff3c3c;">🔴 Blockchain Implementation – Akari</span>
+
+Akari is a lightweight, custom-built blockchain storing only document hashes and metadata.
+Each block contains:
+
+Document hash (SHA-256)
+
+Timestamp
+
+Owner metadata
+
+Previous block hash (for immutability)
+
+
+This guarantees tamper detection and trustless verification, removing the need for intermediaries.
+
+
+---
+
+<span style="color:#ff3c3c;">🔴 AI Module – Gemini</span>
+
+The Gemini AI module enhances usability through:
+
+Document summarization
+
+Smart metadata extraction
+
+Ownership validation
+
+Q&A on document content (privacy-safe)
+
+
+It uses NLP-based pattern recognition to provide human-like assistance while keeping sensitive data offline.
+
+
+---
+
+<span style="color:#ff3c3c;">🔴 AWS Integration</span>
+
+VOID DOCS leverages Amazon Web Services for:
+
+S3: Secure document storage (encrypted blobs)
+
+EC2 / Elastic Beanstalk: Flask & MongoDB hosting
+
+IAM & Encryption: Controlled access management
+
+Scalability: High availability for document verification requests
+
+
+
+---
+
+<span style="color:#ff3c3c;">🔴 Team Akatsuki</span>
+
+Name	Role	Contact
+
+Jai Kishore N H	Team Head	jaikishore.n2025@vitstudent.ac.in
+Lalith Adhithiya Saravanan	Backend Lead	lalith.adhithya2025@vitstudent.ac.in
+Fawwaz Ahamed F	Frontend & AI	fawwazahamed.f2025@vitstudent.ac.in
+Joash Mathew Jiju	Cloud & Blockchain	joash.mathewjiju2025@vitstudent.ac.in
+
+
+
+---
+
+<span style="color:#ff3c3c;">🔴 Future Roadmap</span>
+
+🧱 Expand Akari to multi-node permissioned network
+📱 Mobile app for document scanning & upload
+🔒 Zero-knowledge verification for privacy
+🌐 Integration with national e-doc systems
+🧠 Advanced Gemini features: multilingual & legal doc parsing
+
+
+---
+
+<span style="color:#ff3c3c;">🔴 Contact</span>
+
+📧 Email any team member above for collaboration or demo requests.
+💬 Repository maintained by Team Akatsuki – VOID DOCS.
+
+
+---
+
+<div align="center" style="margin-top:30px;">
+  <hr style="border: 1px solid #ff3c3c; width:60%;">
+  <p style="color:#888;">© 2025 VOID DOCS | Powered by Akari Blockchain & Gemini AI</p>
+</div><style>
+h2, h3, h4 {
+  color: #ff3c3c !important;
+  position: relative;
+}
+h2::after, h3::after, h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 100px;
+  background: linear-gradient(90deg, #ff3c3c, #000);
+  animation: glow 2s infinite alternate;
+}
+@keyframes glow {
+  from {box-shadow: 0 0 10px #ff3c3c;}
+  to {box-shadow: 0 0 25px #ff3c3c;}
+}
+</style>---
