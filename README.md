@@ -25,8 +25,8 @@ VOID (short for **VOID- D O C S**) is a prototype platform that:
 
 ---
 
-## Team (from project attachment)
-**Team Akatsuki** — details taken from the project brief. 0
+## Team 
+**Team Akatsuki**  0
 
 - **Team Head:** Jai Kishore N H — Jaikishore.n2025@vitstudent.ac.in — +91 95511 55198 — VIT Chennai  
 - **Member:** Lalith Adhithiya Saravanan — Lalith.adhithya2025@vitstudent.ac.in — +91 96555 913574 — VIT Chennai  
@@ -35,7 +35,7 @@ VOID (short for **VOID- D O C S**) is a prototype platform that:
 
 ---
 
-## Problem statement (from attachment)
+## Problem statement 
 > "India’s digital identity and property documentation system lacks security, transparency, and interoperability."  
 > Traditional document storage is vulnerable to loss, forgery, and unauthorized access. Centralized platforms create single points of failure. Verification is slow and bureaucratic. There is an opportunity to create an independent, transparent verification system leveraging blockchain & AI. 1
 
