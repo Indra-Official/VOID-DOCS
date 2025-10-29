@@ -1,20 +1,19 @@
 <div align="center" style="background:#000; padding:30px; border-radius:15px;">
   <img src="LOGO_URL_HERE" alt="VOID DOCS Logo" width="220"/>
-
-  # 🚀 VOID DOCS  
-  ### *Secure • Decentralized • Intelligent Document Verification*
-  **Built with Flask | Python | MongoDB | AWS | Akari Blockchain | Gemini AI**
+  <h1>ðŸš€ VOID DOCS</h1>
+  <h3><i>Secure â€¢ Decentralized â€¢ Intelligent Document Verification</i></h3>
+  <b>Built with Flask | Python | MongoDB | AWS | Akari Blockchain | Gemini AI</b>
 </div>
 
 ---
 
-## 🔴 Problem
-India’s document systems face forgery, delays & data leaks.  
+## ðŸ”´ Problem
+Indiaâ€™s document systems face forgery, delays & data leaks.  
 VOID DOCS delivers blockchain-backed, AI-powered verification for authentic, tamper-proof records.
 
 ---
 
-## 🔴 Features
+## ðŸ”´ Features
 - Immutable records on **Akari Blockchain**  
 - **Gemini AI** for tagging & Q-A  
 - **AWS S3/EC2** encrypted cloud storage  
@@ -23,25 +22,25 @@ VOID DOCS delivers blockchain-backed, AI-powered verification for authentic, tam
 
 ---
 
-## 🔴 Architecture
+## ðŸ”´ Architecture
 ```text
-User → Flask API → Akari Blockchain
-             ↓
+User â†’ Flask API â†’ Akari Blockchain
+             â†“
         MongoDB + AWS S3
-             ↓
+             â†“
          Gemini AI Module
-
+```
 
 ---
 
-## 🔴 Core Modules  
-**Akari Blockchain:** Lightweight blockchain storing only file hashes & timestamps — ensures tamper-proof verification.  
+## ðŸ”´ Core Modules  
+**Akari Blockchain:** Lightweight blockchain storing only file hashes & timestamps â€” ensures tamper-proof verification.  
 **Gemini AI:** AI module for document summarization, metadata extraction & question answering.  
 **AWS Integration:** S3 for encrypted file storage, EC2 for backend hosting, IAM for access control.  
 
 ---
 
-## 🔴 Team Akatsuki  
+## ðŸ”´ Team Akatsuki  
 | Name | Role | Email |
 |------|------|-------|
 | Jai Kishore N H | Team Head | jaikishore.n2025@vitstudent.ac.in |
