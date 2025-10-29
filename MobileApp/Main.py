@@ -1,10 +1,12 @@
 # Importing necessary modules from Flask and other files
-from flask import Flask, render_template, request, session
-from Logined import logined          # Custom function to check login credentials
-from Registeration import registeration  # Custom function to handle registration
-from dontcommit import MongoDB
+from flask import Flask, render_template, request, session, redirect, url_for
+from dontcommit import MongoDB, flask
+from Registeration import registeration
+from Logined import logined
+
 # Create a Flask web app
 app = Flask(__name__)
+app.secret_key = flask
 
 # Connect to MongoDB (replace MongoDB with your unique access string)
 x = MongoDB
@@ -13,9 +15,11 @@ x = MongoDB
 # ROUTE 1: Home Page
 # -------------------------------------------
 @app.route('/')
-def home():
-    # When the user visits the base URL, render 'index.html'
-    return render_template('index.html')
+def index():
+    if 'user_id' in session:
+        return redirect(url_for('home'))
+    else:
+        return render_template('index.html')
 
 
 # -------------------------------------------
@@ -46,6 +50,7 @@ def login():
 
         # If login successful, go to Home page
         if Login_status:
+            session['user_id'] = user_id
             return render_template('Home.html')
         # If login failed, show the login page again with an error message
         else:
@@ -93,6 +98,18 @@ def register():
     
     # If accessed via GET, just show the registration page
     return render_template('Register.html')
+
+@app.route('/home')
+def home():
+    if 'user_id' not in session:
+        return redirect(url_for('Login'))
+    return render_template('Home.html')
+
+@app.route('/logout')
+def logout():
+    session.pop('user_id', None)  # Remove user_id from session
+    return redirect(url_for('Login'))  # Redirect to login page after logout
+
 
 
 # -------------------------------------------

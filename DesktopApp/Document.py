@@ -11,7 +11,7 @@ while True:
     a = input("Enter prompt to generate document :")
     from google import genai
 
-    client = genai.Client(api_key = "AIzaSyAR9ZI8ZtgO99I8ANEi00FjzpyEOVysTEM")
+    client = genai.Client(api_key = )
 
     response = client.models.generate_content(
         model="gemini-2.5-flash",
