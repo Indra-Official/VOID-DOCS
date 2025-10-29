@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register ADMIN</title>
+    <title>Login ADMIN</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 </head>
 <body>
     <canvas id="blockchain-bg"></canvas>
@@ -20,31 +20,27 @@
         </div>
         <nav class="nav_links">
             <a href="admin_index.html#features">Privileges</a>
-            <a href="admin_login.html">Login</a>
+            <a href="admin_register.html">Register</a>
         </nav>
     </div>
 
     <div class="mainview">
     
         <div class="form-box">
-            <h2>Create Admin Account</h2>
-            <form class="" action="/register" method="post">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required>
-
+            <h2>Admin Portal Login</h2>
+            <form class="" action="/login" method="post">
                 <label for="user_id">ID Number</label>
                 <input type="text" id="user_id" name="user_id" required>
 
-                <label for="password">Create Password</label>
+                <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
 
-                <button type="submit">Register</button>
+                <button type="submit">Login</button>
             </form>
-            <p class="login-link">Already have an account? <a href="admin_login.html">Login here</a></p>
+            <p class="register-link">Don't have an account? <a href="admin_register.html">Register here</a></p>
         </div>
 
     </div>
-    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
-    
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
 </body>
 </html>
