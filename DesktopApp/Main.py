@@ -1,8 +1,12 @@
 # Importing necessary modules from Flask and other files
 from flask import Flask, render_template, request, session, redirect, url_for
 from dontcommit import MongoDB, flask
+from pymongo import MongoClient
 from Registeration import registeration
 from Logined import logined
+import os
+from Commands import sha256_hasher
+import bson 
 
 # Create a Flask web app
 app = Flask(__name__)
@@ -10,6 +14,12 @@ app.secret_key = flask
 
 # Connect to MongoDB (replace MongoDB with your unique access string)
 x = MongoDB
+
+
+UPLOAD_FOLDER = 'uploads'
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)  # Create folder if it doesn't exist
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 
 # -------------------------------------------
 # ROUTE 1: Home Page
@@ -104,6 +114,37 @@ def home():
     if 'user_id' not in session:
         return redirect(url_for('Login'))
     return render_template('Home.html')
+
+
+@app.route('/upload', methods=['POST'])
+def upload():
+    if 'files[]' not in request.files:
+        return 'No files uploaded', 400
+
+    files = request.files.getlist('files[]')
+    uploaded = []
+
+    for file in files:
+        if file.filename:
+            file_data = file.read()  # Read file content as bytes
+            file_hash = sha256_hasher(file)  # Compute hash
+
+            document = {
+                'filename': file.filename,
+                'content_type': file.content_type,
+                'file_data': bson.Binary(file_data),
+                'sha256_hash': file_hash
+            }
+            client = MongoClient(x)
+            db = client["VOID-Docs"]
+            Documents = db["Documents"]
+
+            result = Documents.insert_one(document)
+            uploaded.append(str(result.inserted_id))
+
+    return f"Files stored with IDs: {', '.join(uploaded)}"
+
+
 
 @app.route('/logout')
 def logout():

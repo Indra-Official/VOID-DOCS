@@ -193,20 +193,36 @@ document.addEventListener('DOMContentLoaded', () => {
                     files = [...files];
                     if (files.length > 0) {
                         const p = dropArea.querySelector('p');
-                        p.innerHTML = `<strong>File selected:</strong> ${files[0].name}`;
-                        
-                        console.log('File(s) dropped:', files);
-                        
-                        // Optional: close modal after 2s and reset text
-                        setTimeout(() => {
-                            closeModal(uploadModal);
-                            // Reset text after modal is closed
+                        p.innerHTML = `<strong>Uploading:</strong> ${files[0].name}`;
+
+                        const formData = new FormData();
+                        for (let file of files) {
+                            formData.append('files[]', file);
+                        }
+
+                        fetch('/upload', {
+                            method: 'POST',
+                            body: formData
+                        })
+                        .then(res => res.text())
+                        .then(data => {
+                            console.log('Upload response:', data);
+                            p.innerHTML = `<strong>Uploaded:</strong> ${files[0].name}`;
+
                             setTimeout(() => {
-                                p.innerHTML = `Drag & drop files here or <strong>click to select</strong>`;
-                                fileInput.value = ''; // Clear the file input
-                            }, 300); // 300ms matches CSS transition
-                        }, 2000);
+                                closeModal(uploadModal);
+                                setTimeout(() => {
+                                    p.innerHTML = `Drag & drop files here or <strong>click to select</strong>`;
+                                    fileInput.value = '';
+                                }, 300);
+                            }, 2000);
+                        })
+                        .catch(err => {
+                            console.error('Upload error:', err);
+                            p.innerHTML = `<strong>Error uploading:</strong> ${files[0].name}`;
+                        });
                     }
                 }
+
             }
         });
