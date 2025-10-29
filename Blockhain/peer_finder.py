@@ -1,8 +1,5 @@
 import socket
-from pymongo import MongoClient
-from dontcommit import MongoDB
 import threading
-import time
 
 def Listen():
     server_ip = '0.0.0.0'
@@ -27,31 +24,6 @@ def Send(ip,msg):
     client_socket.connect((server_ip, server_port))
     client_socket.sendall(msg.encode())
     client_socket.close()
-
-
-def Add_Peer_List(ip):
-    client = MongoClient(MongoDB)
-    db = client["VOID-Docs"]
-    Active_Peers = db["Active_Peers"]
-    Peers = Active_Peers.find_one({"Peer": ip})
-
-    if Peers == None:
-        Active_Peers.insert_one({"Peer": ip})
-        return "Peer Added."
-    else:
-        return "Peer already listed."
-    
-def Remove_Peer_List(ip):
-    client = MongoClient(MongoDB)
-    db = client["VOID-Docs"]
-    Active_Peers = db["Active_Peers"]
-    Peers = Active_Peers.find_one({"Peer": ip})
-
-    if Peers != None:
-        Active_Peers.delete_one({"Peer": ip})
-        return "Peer Removed."
-    else:
-        return "Peer not listed."
 
 def Discover_New_Peers():
     while True:

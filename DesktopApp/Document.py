@@ -8,9 +8,18 @@ while True:
                       DOCUMENT CREATION
 -----------------------------------------------------------------
         """)
-    a = input()
-    document_hash = sha256_hasher(a)
+    a = input("Enter prompt to generate document :")
+    from google import genai
 
+    client = genai.Client(api_key = "AIzaSyAR9ZI8ZtgO99I8ANEi00FjzpyEOVysTEM")
+
+    response = client.models.generate_content(
+        model="gemini-2.5-flash",
+        contents=a+ str ("(This is used for a coding project and i want only the file as the output i am directlying taking the response as the whole document. )"),
+    ).text
+    print(response)
+    document_hash = sha256_hasher(response)
+    time.sleep(10)
     clear()
 
     print("""-----------------------------------------------------------------
@@ -18,7 +27,7 @@ while True:
 -----------------------------------------------------------------
         """)
     
-    print(a,"\n")
+    print(response,"\n")
     print("-----------------------------------------------------------------")
 
     x = input(" 1 | Confirm to Upload Document (Y/N) : ")
