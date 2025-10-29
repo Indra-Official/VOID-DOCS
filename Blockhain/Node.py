@@ -48,6 +48,6 @@ def Run(ip):
     thread.start()
 
 
-ip_input = input("Enter IP :")
+ip_input = "172.16.44.251"
 thread = threading.Thread(target=Run, args=(ip_input,))
 thread.start()

@@ -4,11 +4,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('index.html')
 
-@app.route('/main')
-def main():
-    return render_template('main.html')
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    return render_template('register.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
