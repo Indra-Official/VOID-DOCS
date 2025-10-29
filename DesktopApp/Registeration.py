@@ -1,41 +1,40 @@
 from pymongo import MongoClient
 import bcrypt
-import os
-from Commands import generate_rsa_keypair, clear
+from Commands import generate_rsa_keypair
 
-clear()
+def registeration(name, user_id, user_pass, x):
+    # Connect to MongoDB using the provided connection string
+    client = MongoClient(x)
 
+    # Access the database and collections
+    db = client["VOID-Docs"]
+    Admins_ID = db["Admins_ID"]
+    Admins_Public = db["Admins_Public"]
 
-print("""-----------------------------------------------------------------
-                      ADMIN REGISTERATION
------------------------------------------------------------------
-      """)
-a = input(" 1 | Enter your Full Name : ")
-b = input(" 2 | Enter your ID Number : ")
-c = input(" 3 | Create a Password : ")
+    # Check if the user ID already exists
+    existing_user = Admins_ID.find_one({"ID": user_id})
 
+    # If user does not exist, proceed with registration
+    if existing_user is None:
+        # Hash the user's password using bcrypt for security
+        hashed_password = bcrypt.hashpw(user_pass.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
 
-client = MongoClient("mongodb+srv://thechallengeof100_db_user:Lalith%402007!@void-docs.chspz4j.mongodb.net/")
+        # Store user credentials in Admins_ID collection
+        Admins_ID.insert_one({"ID": user_id, "ID_Passwd": hashed_password})
 
-db = client["VOID-Docs"]
-Admins_ID = db["Admins_ID"]
-Admins_Public = db["Admins_Public"]
+        # Generate a new RSA key pair (private, public)
+        keys = generate_rsa_keypair()
 
-id_ = {"ID": b, "ID_Passwd": (bcrypt.hashpw(c.encode('utf-8'), bcrypt.gensalt())).decode('utf-8')}  
-Admins_ID.insert_one(id_)
+        # Store public key and user details in Admins_Public collection
+        Admins_Public.insert_one({
+            "Public_Key": keys[1],
+            "ID": user_id,
+            "Name": name
+        })
 
-keys = generate_rsa_keypair()
+        # Return success message, status flag, and private key
+        return ["Registration Successful.", True, keys[0]]
 
-public_ = {"Public_Key": keys[1], "ID": b, "Name": a}
-Admins_Public.insert_one(public_)
-
-x = open("DesktopApp/Private_Key.txt", "w")
-x.write(keys[0])
-x.close()
-
-print("""
------------------------------------------------------------------""")
-print("Account Registered.")
-print("-----------------------------------------------------------------")
-print("\n",keys[1])
-print("-----------------------------------------------------------------")
+    # If user ID already exists, return failure message
+    else:
+        return ["Admin ID already in use.", False]
