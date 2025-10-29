@@ -6,7 +6,6 @@ from dontcommit import MongoDB
 app = Flask(__name__)
 x = MongoDB
 
-
 @app.route('/')
 def home():
     return render_template('index.html')
