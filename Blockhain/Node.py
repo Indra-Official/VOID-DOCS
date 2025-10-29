@@ -4,9 +4,9 @@ from dontcommit import MongoDB
 import threading
 import time
 
-def Listen(bin="0.0.0.0"):
+def Listen():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server.bind((bin, 12345))
+    server.bind(("0.0.0.0", 12345))
     server.listen(1)
     conn, addr = server.accept()
     data = conn.recv(1024)
@@ -30,20 +30,20 @@ def Get_Peer():
 
 def First_Connect(ip):
     while True:
-        b = Listen(ip)
-        a = Send(ip,"Addme")
+        b = Listen()
+        a = Send(ip,"Add_Me")
         time.sleep(1)
-        if b[1] == "Added you":
+        if b[0] == ip and b[1] == "Added_You":
             break
         else:
             continue
 
 def Stay_Connected(ip):
     while True:
-        b = Listen(ip)
+        b = Listen()
         time.sleep(1)
-        if b[1] == "Online_Check":
-            Send("Addme")
+        if b[0] == ip and b[1] == "Online_Check":
+            Send(ip, "Add_Me")
         else:
             continue
 
@@ -54,5 +54,5 @@ def Run(ip):
 
 
 ip_input = input("Enter IP :")
-thread = threading.Thread(target=Run, args=(ip_input))
+thread = threading.Thread(target=Run, args=(ip_input,))
 thread.start()

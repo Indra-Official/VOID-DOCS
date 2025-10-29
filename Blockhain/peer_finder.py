@@ -48,25 +48,25 @@ def Discover_New_Peers():
         dax = Listen()
         ip , data = dax[0] , dax[1] 
         time.sleep(1)
-        if data == "Addme" and ip not in current_connected_peers :
+        print(ip)
+        if data == "Add_Me" and ip not in current_connected_peers :
             current_connected_peers += [ip]
-            Send(ip,"Addedyou")
+            Send(ip,"Added_You")
 
-def Remove_Offline_Peers():
+def Remove_Offline_Peers(current_connected_peers):
     while True:
-        global current_connected_peers
         for i in current_connected_peers:
             dab = Listen(i)
             dax = Send(i,"Online_Check")
             time.sleep(1)
-            if dab != "Addme":
+            if dab != "Add_Me":
                 current_connected_peers.remove(i)
 
 def Run():
     current_connected_peers = []
 
     Adder = threading.Thread(target = Discover_New_Peers)
-    Remover = threading.Thread(target = Remove_Offline_Peers)
+    Remover = threading.Thread(target = Remove_Offline_Peers,args=(current_connected_peers,))
     Adder.start()
     Remover.start()
 
