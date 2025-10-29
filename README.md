@@ -4,13 +4,12 @@
   <h3><i>Secure | Decentralized | Intelligent Document Verification</i></h3>
   <b>Built with Flask | Python | MongoDB | AWS | Akari Blockchain | Gemini AI</b>
   <div align="center">
-  <img src="./assets/python.png" width="60"/>
-  <img src="./assets/flask.png" width="60"/>
-  <img src="./assets/mongodb.png" width="60"/>
-  <img src="./assets/javascript.png" width="60"/>
-  <img src="./assets/aws.png" width="60"/>
-  <img src="./assets/blockchain.png" width="60"/>
-  <img src="./assets/gemini.png" width="60"/>
+    ![Python](https://img.shields.io/badge/Python-3.10-blue)
+    ![Flask](https://img.shields.io/badge/Flask-Backend-lightgrey)
+    ![MongoDB](https://img.shields.io/badge/Database-MongoDB-green)
+    ![AWS](https://img.shields.io/badge/Cloud-AWS-orange)
+    ![Hackathon](https://img.shields.io/badge/Event-Hackathon-red)
+  </div>
 </div>
 
 ---
