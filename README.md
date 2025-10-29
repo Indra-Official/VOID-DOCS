@@ -70,4 +70,12 @@ A blockchain is an append-only distributed ledger made of blocks. Each block con
 - **Audit trail:** All transactions (uploads, transfers, ownership claims) are recorded with timestamps.
 
 ---
-
+<div align="center">
+  <img src="https://www.vectorlogo.zone/logos/python/python-icon.svg" width="60" />
+  <img src="https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-icon.svg" width="60" />
+  <img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" width="60" />
+  <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" width="60" />
+  <img src="https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg" width="60" />
+  <img src="https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" width="60" />
+  <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" width="60" />
+</div>
