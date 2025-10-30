@@ -13,34 +13,78 @@
   
   </div>
 </div>
+<div align="center">
+  <img src="https://www.vectorlogo.zone/logos/python/python-icon.svg" width="60" />
+  <img src="https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-icon.svg" width="60" />
+  <img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" width="60" />
+  <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" width="60" />
+  <img src="https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg" width="60" />
+  <img src="https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" width="60" />
+  <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" width="60" />
+</div>
+
+ 
+---
 
 ---
 
-## ´ Problem
-India's document systems face forgery, delays & data leaks.  
-VOID DOCS delivers blockchain-backed, AI-powered verification for authentic, tamper-proof records.
+<div align="center" style="background:#000; padding:20px; border-radius:12px; border:1px solid #ff3c3c;">
+
+<h2 style="color:#ff3c3c;">🚨 Problem Statement</h2>
+
+<p style="font-size:16px; color:#ddd; max-width:800px; text-align:center; line-height:1.6;">
+India’s document management systems still rely on centralized verification models,
+leading to <b>forgery, tampering, delays, and massive data leaks.</b><br><br>
+<b style="color:#ff3c3c;">VOID DOCS</b> introduces a next-generation framework that
+combines <b>Blockchain immutability</b> with <b>AI intelligence</b> to create
+a secure, decentralized, and instantly verifiable record system — ensuring
+<b>authenticity, privacy, and trust</b> in every document transaction.
+</p>
+
+</div>
+
+---
+---
 
 ---
 
-## ´ Features
-- Immutable records on **Akari Blockchain**  
-- **Gemini AI** for tagging & Q-A  
-- **AWS S3/EC2** encrypted cloud storage  
-- Fast hash-based verification  
-- Modular **Flask + MongoDB** backend  
+<div align="center" style="background:#000; padding:20px; border-radius:12px; border:1px solid #ff3c3c;">
+<h2 style="color:#ff3c3c;">⚙️ Core Features</h2>
+</div>
+
+<ul style="font-size:16px; color:#ddd; line-height:1.7;">
+
+<li><b style="color:#ff3c3c;">🧱 Akari Blockchain:</b>  
+Every document is converted into a <b>unique SHA-256 hash</b> and stored on Akari — ensuring tamper-proof verification and permanent traceability.</li>
+
+<li><b style="color:#ff3c3c;">🧠 Gemini AI Integration:</b>  
+Gemini enhances document processing through <b>intelligent tagging</b>, metadata extraction, and Q-A-based content assistance — all while preserving data privacy.</li>
+
+<li><b style="color:#ff3c3c;">☁️ AWS Cloud Deployment:</b>  
+VOID DOCS uses <b>Amazon S3</b> for secure file storage and <b>EC2</b> for scalable backend hosting — ensuring availability, encryption, and reliability.</li>
+
+<li><b style="color:#ff3c3c;">⚡ Fast Verification:</b>  
+Hash-based verification allows instant document validation without re-uploading the file — reducing verification time to seconds.</li>
+
+<li><b style="color:#ff3c3c;">🧩 Modular Flask + MongoDB Backend:</b>  
+Our backend uses <b>Flask APIs</b> for logic and <b>MongoDB</b> for structured metadata — a flexible, scalable foundation for expansion and AI integration.</li>
+
+</ul>
+
+---  
 
 ---
 
-## ´ Architecture
-```text
-User -> Flask API -> Akari Blockchain
-             ⬇️
-        MongoDB + AWS S3
-             ⬇️
-         Gemini AI Module
-```
-
 ---
+
+## 🧩 System Architecture
+
+```mermaid
+flowchart TD
+    A[UserInterface] --> B[Flask API Layer<br/>Handles uploads & authentication]
+    B --> C[Akari Blockchain<br/>Stores SHA-256 hashes & timestamps]
+    C --> D[AWS (S3 + EC2) + MongoDB<br/>Encrypted storage & scalability]
+    D --> E[Gemini AI Module<br/>Performs metadata extraction, tagging & Q&A]
 
 ## ´ Core Modules  
 **Akari Blockchain:** Lightweight blockchain storing only file hashes & timestamps â€” ensures tamper-proof verification.  
@@ -89,4 +133,4 @@ This guarantees **immutability, transparency, and verification** — without sto
 
 ---
 
- 
+
