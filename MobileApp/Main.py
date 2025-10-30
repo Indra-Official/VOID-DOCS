@@ -1,5 +1,5 @@
 # Importing necessary modules from Flask and other files
-from flask import Flask, render_template, request, session, redirect, url_for
+from flask import Flask, render_template, request, session, redirect, Response, url_for
 from dontcommit import MongoDB, flask
 from Registeration import registeration
 from Logined import logined
@@ -60,6 +60,7 @@ def login():
     return render_template('Login.html')
 
 
+
 # -------------------------------------------
 # ROUTE 4: Register Page (GET)
 # -------------------------------------------
@@ -91,13 +92,22 @@ def register():
 
         # If registration successful, go to Home page
         if Register_status:
+            session['user_id'] = user_id
+            print("Hello",m[2])
+            session['private_key'] = m[2]
             return render_template('Home.html')
         # If registration failed, reload registration page with message
         else:
+            session['private_key'] = "panda "
             return render_template('Register.html', message=msg)
     
     # If accessed via GET, just show the registration page
     return render_template('Register.html')
+
+@app.route('/get-string')
+def get_string():
+    print(session['private_key'])
+    return session['private_key']
 
 @app.route('/home')
 def home():
@@ -105,10 +115,11 @@ def home():
         return redirect(url_for('Login'))
     return render_template('Home.html')
 
+
 @app.route('/logout')
 def logout():
     session.pop('user_id', None)  # Remove user_id from session
-    return redirect(url_for('Login'))  # Redirect to login page after logout
+    return redirect(url_for('index'))  # Redirect to login page after logout
 
 
 

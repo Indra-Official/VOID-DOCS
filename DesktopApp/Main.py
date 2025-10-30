@@ -8,12 +8,15 @@ import os
 from Commands import sha256_hasher
 import bson 
 
+
 # Create a Flask web app
 app = Flask(__name__)
 app.secret_key = flask
 
 # Connect to MongoDB (replace MongoDB with your unique access string)
 x = MongoDB
+<<<<<<< HEAD
+=======
 
 
 UPLOAD_FOLDER = 'uploads'
@@ -21,6 +24,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)  # Create folder if it doesn't exist
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
+>>>>>>> df9dcd7f916cdee6ed267e4ae87cc41345c5b4bf
 # -------------------------------------------
 # ROUTE 1: Home Page
 # -------------------------------------------
@@ -101,10 +105,11 @@ def register():
 
         # If registration successful, go to Home page
         if Register_status:
+            session['user_id'] = user_id
             return render_template('Home.html')
         # If registration failed, reload registration page with message
         else:
-            return render_template('Register.html', message=msg)
+            return render_template('Register.html', message=msg) 
     
     # If accessed via GET, just show the registration page
     return render_template('Register.html')
