@@ -17,7 +17,7 @@
             <span class="vo">VO</span><span class="id">ID</span><span class="docs">-DOCS</span>
         </div>
         <nav class="nav_links">
-            <a href="">Logout</a>
+            <a href="{{ url_for('logout')}}">Logout</a>
             <a href="" title="Profile">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -146,7 +146,22 @@
             <h2>Upload New Document</h2>
             <span class="modal-close" data-modal="upload-modal">&times;</span>
         </div>
-        <div class="drag-drop-area">
+        
+        <div class="modal-form">
+            <label for="user-id-input">Citizen User ID</label>
+            <div class="search-bar">
+                <input type="text" id="user-id-input" placeholder="Enter citizen's User ID to find them...">
+                <button type="button" id="search-user-btn">Search</button>
+            </div>
+        </div>
+
+        <div id="user-details-container" class="user-details">
+            <h4 id="recipient-list-title">Recipients:</h4>
+            <div id="recipient-list"></div>
+            <p class="placeholder" id="recipient-placeholder">Enter a User ID to fetch details.</p>
+        </div>
+
+        <div class="drag-drop-area" style="display: none;">
             <input type="file" id="file-input" multiple style="display: none;">
             <div class="upload-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">

@@ -6,6 +6,13 @@ body {
             color: #f4f4f4;
         }
 
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+
+
         #blockchain-bg {
             position: fixed;
             top: 0;
@@ -349,6 +356,102 @@ body {
             background-color: #cc0000;
         }
         
+        /* New styles for User Search */
+        .search-bar {
+            display: flex;
+            gap: 1vw;
+            margin-bottom: 2vh;
+        }
+        .search-bar input {
+            flex-grow: 1;
+            font-family: "Share Tech", sans-serif;
+            font-size: 2vh;
+            color: #f4f4f4;
+            background-color: #222;
+            border: 0.1vh solid #444;
+            border-radius: 0.5vw;
+            padding: 1.5vh 1vw;
+        }
+        .search-bar button {
+            font-family: "Share Tech", sans-serif;
+            font-size: 2vh;
+            color: white;
+            background-color: red;
+            border: none;
+            padding: 1.5vh 2vw;
+            cursor: pointer;
+            border-radius: 0.5vw;
+            transition: background-color 0.3s ease;
+            white-space: nowrap;
+        }
+        .search-bar button:hover {
+            background-color: #cc0000;
+        }
+        
+        .user-details {
+            background-color: #111;
+            border: 0.1vh solid #333;
+            border-radius: 0.5vw;
+            padding: 2vh 1.5vw;
+            min-height: 5vh;
+            margin-bottom: 3vh;
+        }
+        .user-details p {
+            margin: 0;
+            font-size: 1.8vh;
+            color: #aaa;
+        }
+        .user-details h4 {
+            font-size: 2vh;
+            color: red;
+            margin-top: 0;
+            margin-bottom: 1vh;
+        }
+        .user-details p strong {
+            color: #ddd;
+        }
+        .user-details .error {
+            color: red;
+            font-weight: 600;
+        }
+        
+        /* New styles for Recipient List */
+        #recipient-list-title {
+            font-size: 2vh;
+            color: red;
+            margin-top: 0;
+            margin-bottom: 1vh;
+            display: none; /* Hidden by default */
+        }
+        
+        .recipient-tag {
+            display: inline-flex;
+            align-items: center;
+            background-color: #222;
+            border: 0.1vh solid #444;
+            border-radius: 0.5vw;
+            padding: 1vh 1vw;
+            margin-right: 1vw;
+            margin-bottom: 1vh;
+            font-size: 1.8vh;
+        }
+        
+        .recipient-tag span {
+            color: #f4f4f4;
+            margin-right: 1vw;
+        }
+        
+        .recipient-tag .remove-recipient {
+            font-size: 2.5vh;
+            color: #888;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .recipient-tag .remove-recipient:hover {
+            color: red;
+        }
+
+
         /* Document List Styles */
         .document-list {
             width: 100%;
