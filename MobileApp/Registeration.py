@@ -8,8 +8,8 @@ def registeration(name, user_id, user_pass, x):
 
     # Access the database and collections
     db = client["VOID-Docs"]
-    Users_ID = db["Admins_ID"]
-    Users_Public = db["Admins_Public"]
+    Users_ID = db["Users_ID"]
+    Users_Public = db["Users_Public"]
 
     # Check if the user ID already exists
     existing_user = Users_ID.find_one({"ID": user_id})

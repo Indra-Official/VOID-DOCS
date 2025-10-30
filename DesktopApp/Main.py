@@ -4,13 +4,13 @@ from dontcommit import MongoDB, flask
 from Registeration import registeration
 from Logined import logined
 
+
 # Create a Flask web app
 app = Flask(__name__)
 app.secret_key = flask
 
 # Connect to MongoDB (replace MongoDB with your unique access string)
 x = MongoDB
-
 # -------------------------------------------
 # ROUTE 1: Home Page
 # -------------------------------------------
@@ -91,10 +91,11 @@ def register():
 
         # If registration successful, go to Home page
         if Register_status:
+            session['user_id'] = user_id
             return render_template('Home.html')
         # If registration failed, reload registration page with message
         else:
-            return render_template('Register.html', message=msg)
+            return render_template('Register.html', message=msg) 
     
     # If accessed via GET, just show the registration page
     return render_template('Register.html')
