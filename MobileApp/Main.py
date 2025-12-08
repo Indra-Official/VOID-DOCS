@@ -98,8 +98,8 @@ def register():
             return render_template('Home.html')
         # If registration failed, reload registration page with message
         else:
-            session['private_key'] = "panda "
-            return render_template('Register.html', message=msg)
+            session['private_key'] = "panda"
+            return render_template('Register.html', message= msg)
     
     # If accessed via GET, just show the registration page
     return render_template('Register.html')
@@ -120,8 +120,6 @@ def home():
 def logout():
     session.pop('user_id', None)  # Remove user_id from session
     return redirect(url_for('index'))  # Redirect to login page after logout
-
-
 
 # -------------------------------------------
 # Run the Flask web app

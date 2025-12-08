@@ -10,21 +10,12 @@ import bson
 
 
 # Create a Flask web app
-app = Flask(__name__)
-app.secret_key = flask
-
-# Connect to MongoDB (replace MongoDB with your unique access string)
-x = MongoDB
-<<<<<<< HEAD
-=======
 
 
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)  # Create folder if it doesn't exist
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-
->>>>>>> df9dcd7f916cdee6ed267e4ae87cc41345c5b4bf
 # -------------------------------------------
 # ROUTE 1: Home Page
 # -------------------------------------------
@@ -39,10 +30,7 @@ def index():
 # -------------------------------------------
 # ROUTE 2: Login Page (GET)
 # -------------------------------------------
-@app.route('/Login', methods=['POST', 'GET'])
-def Login():
-    # Shows the login form page (Login.html)
-    return render_template('Login.html')
+
 
 
 # -------------------------------------------
@@ -149,7 +137,16 @@ def upload():
 
     return f"Files stored with IDs: {', '.join(uploaded)}"
 
-
+@app.route("/data_list_doc", methods = ["POST", "GET"])
+def data_list_doc():
+    data = request.get_json()
+    data = (data.get('data'))
+    print(data)
+    client = MongoClient(x)
+    db = client["VOID-Docs"]
+    Users_Public = db["Users_Public"]
+    Data_Set = []
+    return jsonify(Data_set)
 
 @app.route('/logout')
 def logout():

@@ -19,8 +19,7 @@
             <span class="docs">-DOCS</span>
         </div>
         <nav class="nav_links">
-            <a href="admin_index.html#features">Privileges</a>
-            <a href="admin_register.html">Register</a>
+            <a href="{{ url_for('Register_Page')}}">Register</a>
         </nav>
     </div>
 
@@ -28,7 +27,7 @@
     
         <div class="form-box">
             <h2>Admin Portal Login</h2>
-            <form class="" action="/login" method="post">
+            <form class="" action="/Login_Admin" method="post">
                 <label for="user_id">ID Number</label>
                 <input type="text" id="user_id" name="user_id" required>
 
@@ -37,10 +36,10 @@
 
                 <button type="submit">Login</button>
             </form>
-            <p class="register-link">Don't have an account? <a href="admin_register.html">Register here</a></p>
+            <p class="register-link">Don't have an account? <a href="{{ url_for('Register_Page')}}">Register here</a></p>
         </div>
 
     </div>
-    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script> ` 1
 </body>
 </html>

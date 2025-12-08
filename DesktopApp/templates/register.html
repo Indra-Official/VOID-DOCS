@@ -19,8 +19,7 @@
             <span class="docs">-DOCS</span>
         </div>
         <nav class="nav_links">
-            <a href="admin_index.html#features">Privileges</a>
-            <a href="admin_login.html">Login</a>
+            <a href="{{ url_for('Login_Page')}}">Login</a>
         </nav>
     </div>
 
@@ -28,7 +27,7 @@
     
         <div class="form-box">
             <h2>Create Admin Account</h2>
-            <form class="" action="/register" method="post">
+            <form class="" action="/Register_Admin" method="post">
                 <label for="name">Full Name</label>
                 <input type="text" id="name" name="name" required>
 
@@ -40,7 +39,7 @@
 
                 <button type="submit">Register</button>
             </form>
-            <p class="login-link">Already have an account? <a href="admin_login.html">Login here</a></p>
+            <p class="login-link">Already have an account? <a href="{{ url_for('Login_Page')}}">Login here</a></p>
         </div>
 
     </div>
