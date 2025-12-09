@@ -15,7 +15,7 @@
 </div>
 <div align="center">
   <img src="https://www.vectorlogo.zone/logos/python/python-icon.svg" width="60" />
-  <img src="https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-icon.svg" width="60" />
+  <img src="https://www.vectorlogo.zone/logos/palletsprojects_flask/palletsprojects_flask-icon~v2.svg" width="60" />
   <img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" width="60" />
   <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" width="60" />
   <img src="https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg" width="60" />
