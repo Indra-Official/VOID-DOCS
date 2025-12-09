@@ -14,7 +14,7 @@ x = MongoDB
 @app.route('/')
 def index():
     if 'user_id' in session:
-        return redirect(url_for('home'))
+        return redirect(url_for('Home'))
     else:
         return render_template('index.html')
 
@@ -140,7 +140,7 @@ def upload_file():
 @app.route('/Logout')
 def Logout():
     session.pop('user_id', None)
-    return redirect(url_for('Login'))
+    return redirect(url_for('login'))
 
 
 if __name__ == '__main__':
