@@ -1,10 +1,8 @@
-from flask import Flask, render_template, request, session, redirect, url_for
+from flask import Flask, render_template, request, session, redirect, url_for, jsonify
 from dontcommit import MongoDB, flask
 from Login_Register import logined , registeration
-
-
-app = Flask(__name__)
-app.secret_key = flask
+from werkzeug.utils import secure_filename
+import os
 
 app = Flask(__name__)
 app.secret_key = flask
@@ -14,7 +12,7 @@ x = MongoDB
 @app.route('/')
 def index():
     if 'user_id' in session:
-        return redirect(url_for('home'))
+        return redirect(url_for('Home'))
     else:
         return render_template('index.html')
 
@@ -73,8 +71,27 @@ def Register_Admin():
 @app.route('/Home')
 def Home():
     if 'user_id' not in session:
-        return redirect(url_for('Login'))
+        return redirect(url_for('Login_Page'))
     return render_template('Home.html')
+
+
+@app.route("/add_auth_user/<user_id>", methods=["GET"])
+def get_user(user_id):
+    from pymongo import MongoClient
+    
+    client = MongoClient(x)
+    db = client["VOID-Docs"]
+    User_Public = db["Users_Public"]
+
+    user = User_Public.find_one({"ID": user_id})
+    if user is None:
+        return jsonify({"error": "User not found in database."}), 404
+
+    name = user.get("Name")
+    key = user.get("Public_Key")
+    user = {"name":name, "publicKey":key}
+    print(1  )
+    return jsonify(user)
 
 
 @app.route('/Download', methods=['POST','GET'])
@@ -108,39 +125,31 @@ def download_file(file_id, output_folder, collection):
         return f"Error: {str(e)}"
 
 
-@app.route('/Upload', methods=['POST'])
+@app.route('/upload', methods=['POST'])
 def upload_file():
-    if 'files[]' not in request.files:
-        return 'No files uploaded', 400
+    UPLOAD_FOLDER = 'uploads'
+    os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+    app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-    files = request.files.getlist('files[]')
-    uploaded = []
+    # "file" must match formData.append('file', ...)
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file part'}), 400
 
-    for file in files:
-        if file.filename:
-            file_data = file.read()  # Read file content as bytes
-            file_hash = sha256_hasher(file)  # Compute hash
+    f = request.files['file']
+    if f.filename == '':
+        return jsonify({'error': 'No selected file'}), 400
 
-            document = {
-                'filename': file.filename,
-                'content_type': file.content_type,
-                'file_data': bson.Binary(file_data),
-                'sha256_hash': file_hash
-            }
-            client = MongoClient(x)
-            db = client["VOID-Docs"]
-            Documents = db["Documents"]
+    filename = secure_filename(f.filename)
+    save_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    f.save(save_path)  # or process in-memory via f.read()
 
-            result = Documents.insert_one(document)
-            uploaded.append(str(result.inserted_id))
-
-    return f"Files stored with IDs: {', '.join(uploaded)}"
+    return jsonify({'message': 'File uploaded successfully', 'filename': filename}), 200
 
 
 @app.route('/Logout')
 def Logout():
     session.pop('user_id', None)
-    return redirect(url_for('Login'))
+    return redirect(url_for('Login_Page'))
 
 
 if __name__ == '__main__':
